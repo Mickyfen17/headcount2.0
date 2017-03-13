@@ -1,7 +1,7 @@
 import DistrictRepository from '../../src/helper.js';
 import kinderData from '../../data/kindergartners_in_full_day_program.js';
 
-describe('DistrictRepository iteration 1 - part 1', () =>  {
+describe.skip('DistrictRepository iteration 1 - part 1', () =>  {
   const district = new DistrictRepository(kinderData);
 
   test('findByName returns undefined if no arguments are provided', () => {
@@ -23,7 +23,7 @@ describe('DistrictRepository iteration 1 - part 1', () =>  {
     expect(district.findByName('ACADEmY 20').location).toEqual('ACADEMY 20');
   });
 
-// taylor --> what does this test actually look for? 
+// taylor --> what does this test actually look for?
   test('each district has a data object containing each year and its data as key value pairs.', () => {
     const academy = district.findByName('ACADEmY 20');
 
