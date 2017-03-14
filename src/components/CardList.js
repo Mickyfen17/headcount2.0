@@ -6,7 +6,7 @@ const CardList = ({ countyStats }) => {
     return(
       <SchoolCountyCard key={i}
                         location={ val }
-                        countyStats={ countyStats[val] }/>
+                        countyStats={ countyStats[val].data } />
     )
   })
   return(

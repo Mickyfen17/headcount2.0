@@ -2,13 +2,10 @@ import React, { Component } from 'react';
 
 const SchoolCountyCard = ({ location, countyStats }) => {
   const mappedStats = Object.keys(countyStats).map((val, i) => {
-    const eachStat = countyStats[val];
     return(
-      <div key={i}>
-        <span>{ eachStat.TimeFrame }</span>
-        <span>  --  </span>
-        <span>{ eachStat.Data }</span>
-      </div>
+      <ul key={i}>
+        <li>{ val } : { countyStats[val] }</li>
+      </ul>
     )
   })
   return(
