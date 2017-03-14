@@ -11,6 +11,7 @@ export default class DistrictRepository {
         obj[Location] = []
         obj[Location].CombinedData = []
       }
+      Data = Data === 'N/A' ? 0 : Math.round(1000*val.Data)/1000
       obj[Location].push(val)
       obj[Location].CombinedData.push([TimeFrame, Data])
       return obj
@@ -29,7 +30,7 @@ export default class DistrictRepository {
     .reduce((obj, val) => {
       const [ year, data ] = val
       !obj.location && (obj.location = currLocation)
-      obj.data[year] = data === 'N/A' ? 0 : Math.round(1000*data)/1000;
+      obj.data[year] = data;
       return obj
     }, { data : {} })
   }
