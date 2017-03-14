@@ -6,8 +6,8 @@ export default class DistrictRepository {
   reduceData(data) {
     return data.reduce((obj, val) => {
       let { Location, TimeFrame, Data } = val;
+      Location = Location.toUpperCase()
       if (!obj[Location]) {
-        Location = Location.toUpperCase()
         obj[Location] = []
         obj[Location].CombinedData = []
       }
