@@ -26,12 +26,18 @@ export default class DistrictRepository {
     const currLocation = this.data[location][0].Location
 
     return CombinedData.sort((a, b) => a[0] - b[0])
-    .reduce((arr, val) => {
+    .reduce((obj, val) => {
       const [ year, data ] = val
-      !arr.location && (arr.location = currLocation)
-      arr.data[year] = data === 'N/A' ? 0 : Math.round(1000*data)/1000;
-      return arr
+      !obj.location && (obj.location = currLocation)
+      obj.data[year] = data === 'N/A' ? 0 : Math.round(1000*data)/1000;
+      return obj
     }, { data : {} })
   }
 
+  findAllMatches(searchKey) {
+    if(!searchKey) {
+      return Object.keys(this.data);
+    }
+    return Object.keys(this.data).filter( location => location.includes(searchKey.toUpperCase()))
+  }
 };
