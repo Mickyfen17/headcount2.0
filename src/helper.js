@@ -8,12 +8,11 @@ export default class DistrictRepository {
       let { Location, TimeFrame, Data } = val;
       Location = Location.toUpperCase()
       if (!obj[Location]) {
-        obj[Location] = []
-        obj[Location].CombinedData = []
+        obj[Location] = {}
+        obj[Location].data = {}
       }
       Data = Data === 'N/A' ? 0 : Math.round(1000*val.Data)/1000
-      obj[Location].push(val)
-      obj[Location].CombinedData.push([TimeFrame, Data])
+      obj[Location].data[TimeFrame] = Data
       return obj
     }, {})
   }
@@ -23,16 +22,12 @@ export default class DistrictRepository {
       return undefined;
     }
     location = location.toUpperCase()
-    const { CombinedData } = this.data[location]
-    const currLocation = this.data[location][0].Location
-
-    return CombinedData.sort((a, b) => a[0] - b[0])
-    .reduce((obj, val) => {
-      const [ year, data ] = val
-      !obj.location && (obj.location = currLocation)
-      obj.data[year] = data;
-      return obj
-    }, { data : {} })
+    const { data } = this.data[location]
+    const filteredObj = {
+      location,
+      data
+    }
+    return filteredObj;
   }
 
   findAllMatches(searchKey) {
