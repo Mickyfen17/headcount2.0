@@ -5,10 +5,11 @@ import './CardList.css';
 
 const CardList = ({ countyStats }) => {
   const mappedToCounty = Object.keys(countyStats).map( (val, i) => {
+    const { location, data } = countyStats[val]
     return(
       <SchoolCountyCard key={i}
-                        location={ val }
-                        countyStats={ countyStats[val].data } />
+                        location={ location  }
+                        countyStats={ data } />
     )
   })
   return(
