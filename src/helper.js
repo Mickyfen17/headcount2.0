@@ -12,7 +12,7 @@ export default class DistrictRepository {
         obj[Location].location = Location
         obj[Location].data = {}
       }
-      Data = Data !== typeof 'number' ? 0 : Math.round(1000*val.Data)/1000
+      Data = typeof Data !== 'number' ? 0 : Math.round(1000*val.Data)/1000
       obj[Location].data[TimeFrame] = Data
       return obj
     }, {})
