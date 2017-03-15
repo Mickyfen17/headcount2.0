@@ -25,3 +25,13 @@ ul {
   list-style: none;
   padding: 5px;
 }
+
+.negative {
+  font-weight: 700;
+  color: red;
+}
+
+.positive {
+  font-weight: 700;
+  color: green;
+}
