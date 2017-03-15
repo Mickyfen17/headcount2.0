@@ -24,10 +24,10 @@ class App extends Component {
   handleSearch(e) {
     this.setState({
       searchText: e.target.value
-    }, this.searchCouties)
+    }, this.serachCounties)
   }
 
-  searchCouties() {
+  serachCounties() {
     const filteredCountiesObject = district.findAllMatches(this.state.searchText)
     this.setState({
       countyStats: filteredCountiesObject
