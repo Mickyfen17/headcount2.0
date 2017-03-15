@@ -24,8 +24,7 @@ class App extends Component {
   handleSearch(e) {
     this.setState({
       searchText: e.target.value
-    })
-    this.searchCouties()
+    }, this.searchCouties)
   }
 
   searchCouties() {
