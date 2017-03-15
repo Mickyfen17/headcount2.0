@@ -18,23 +18,11 @@ export default class DistrictRepository {
     }, {})
   }
 
-  findByName(searchKey) {
-    if(searchKey === undefined || !this.data[searchKey.toUpperCase()]) {
-      return undefined;
-    }
-    searchKey = searchKey.toUpperCase()
-    const { data, location } = this.data[searchKey]
-    const filteredObj = {
-      location,
-      data
-    }
-    return filteredObj;
+  findByName(searchKey='') {
+    return this.data[searchKey.toUpperCase()]
   }
 
-  findAllMatches(searchKey) {
-    if(!searchKey) {
-      return Object.keys(this.data);
-    }
+  findAllMatches(searchKey='') {
     const keys = Object.keys(this.data).filter( location => location.includes(searchKey.toUpperCase()))
     return keys.map( key => this.data[key])
   }
