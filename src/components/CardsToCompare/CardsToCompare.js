@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import SchoolCountyCard from '../SchoolCountyCard/SchoolCountyCard'
 import './CardsToCompare.css';
 
-const CardsToCompare = ({ cardsToCompare, selectedCards }) => {
+const CardsToCompare = ({ cardsToCompare, selectedCards, handleClick }) => {
   if(!cardsToCompare.length) {
     return null
   }
@@ -13,6 +13,7 @@ const CardsToCompare = ({ cardsToCompare, selectedCards }) => {
         key={ index }
         location={ location }
         countyStats={ statistics }
+        handleClick={ handleClick }
         index={ index }
         selectedCards={ selectedCards }
       />

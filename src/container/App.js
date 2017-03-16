@@ -26,11 +26,16 @@ class App extends Component {
      })
   }
 
-
   searchCounties() {
     this.setState({
       countyStats: district.findAllMatches(this.state.searchText),
     })
+  }
+
+  handleSearch(e) {
+    this.setState({
+      searchText: e.target.value
+    }, this.searchCounties)
   }
 
   handleClick(index, location, statistics) {
@@ -70,6 +75,7 @@ class App extends Component {
         <CardsToCompare
           cardsToCompare={ this.state.toCompare }
           selectedCards={ this.state.selectedCards }
+          handleClick={ this.handleClick }
         />
         <CardList
           { ...this.state }
