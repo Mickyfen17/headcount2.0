@@ -11,6 +11,7 @@ h1 {
 .search-input {
   display: block;
   width: 90%;
+  max-width: 500px;
   height: 25px;
   margin: 10px auto;
   border: none;

@@ -2,6 +2,7 @@
   display: flex;
   background: #FFF;
   width: 90%;
+  max-width: 300px;
   margin: 10px 0;
   padding: 15px 0;
   border-radius: 15px;
@@ -38,4 +39,12 @@ ul {
 
 .selected {
   border: 5px solid blue;
+}
+
+@media screen and (min-width: 600px) {
+  .each-card {
+    width: 45%;
+    margin: 10px;
+  }
+
 }
