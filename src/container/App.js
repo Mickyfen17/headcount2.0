@@ -49,7 +49,8 @@ class App extends Component {
   }
   removeFromCompare(index) {
     this.setState({
-      selectedCards: this.state.selectedCards.filter((val, i) => val !== index)
+      selectedCards: this.state.selectedCards.filter((val, i) => val !== index),
+      toCompare: this.state.toCompare.filter( county => county.index !== index)
     })
   }
 
