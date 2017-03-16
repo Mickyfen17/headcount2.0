@@ -3,13 +3,17 @@ import SchoolCountyCard from '../SchoolCountyCard/SchoolCountyCard'
 import './CardList.css';
 
 
-const CardList = ({ countyStats }) => {
+const CardList = ({ countyStats, handleClick, selectedCards }) => {
   const mappedToCounty = Object.keys(countyStats).map( (val, i) => {
     const { location, data } = countyStats[val]
     return(
       <SchoolCountyCard key={i}
                         location={ location  }
-                        countyStats={ data } />
+                        countyStats={ data }
+                        handleClick={ handleClick }
+                        index={ i }
+                        selectedCards={ selectedCards }
+                      />
     )
   })
   return(
