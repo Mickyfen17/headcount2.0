@@ -13,7 +13,6 @@ const SchoolCountyCard = ({ location, countyStats, handleClick, index, selectedC
         <li className={ liClass } key={i}>{ val } : { countyStats[val] }</li>
     )
   })
-  console.log(selectedCards);
   const cardClass = classNames({
                                 'selected' : selectedCards.includes(index),
                                 'each-card' : true
