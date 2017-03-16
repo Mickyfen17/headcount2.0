@@ -35,3 +35,7 @@ ul {
   font-weight: 700;
   color: green;
 }
+
+.selected {
+  border: 5px solid blue;
+}
