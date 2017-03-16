@@ -25,11 +25,6 @@ class App extends Component {
      })
   }
 
-  handleSearch(e) {
-    this.setState({
-      searchText: e.target.value
-    }, this.searchCounties)
-  }
 
   searchCounties() {
     this.setState({
@@ -38,16 +33,23 @@ class App extends Component {
   }
 
   handleClick(index, location, statistics) {
-    if(this.state.selectedCards.length >= 2) {
+    if(this.state.selectedCards.length >= 2 || this.state.selectedCards.includes(index)) {
+      this.removeFromCompare(index)
       return
     }
     const compareObj = {
+      index,
       location,
       statistics,
     }
     this.setState({
       selectedCards: this.state.selectedCards.concat(index),
       toCompare: this.state.toCompare.concat(compareObj),
+    })
+  }
+  removeFromCompare(index) {
+    this.setState({
+      selectedCards: this.state.selectedCards.filter((val, i) => val !== index)
     })
   }
 
