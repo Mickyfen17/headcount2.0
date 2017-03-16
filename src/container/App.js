@@ -11,8 +11,11 @@ class App extends Component {
     super()
     this.state = {
       countyStats: {},
-      searchText: ''
+      searchText: '',
+      selectedCards: []
     }
+
+    this.handleClick = this.handleClick.bind(this)
   }
 
   componentDidMount() {
@@ -24,13 +27,21 @@ class App extends Component {
   handleSearch(e) {
     this.setState({
       searchText: e.target.value
-    }, this.serachCounties)
+    }, this.searchCounties)
   }
 
-  serachCounties() {
-    const filteredCountiesObject = district.findAllMatches(this.state.searchText)
+  searchCounties() {
     this.setState({
-      countyStats: filteredCountiesObject
+      countyStats: district.findAllMatches(this.state.searchText),
+    })
+  }
+
+  handleClick(index) {
+    if(this.state.selectedCards.length >= 2) {
+      return
+    }
+    this.setState({
+      selectedCards: this.state.selectedCards.concat(index),
     })
   }
 
@@ -45,7 +56,10 @@ class App extends Component {
           placeholder='Search School Counties'
           onChange={ e => this.handleSearch(e) }
         />
-        <CardList { ...this.state }/>
+        <CardList
+          { ...this.state }
+          handleClick={ this.handleClick }
+          />
       </section>
     );
   }
