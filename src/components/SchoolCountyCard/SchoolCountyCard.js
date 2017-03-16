@@ -13,7 +13,7 @@ const SchoolCountyCard = ({ location, countyStats, handleClick, index, selectedC
         <li className={ liClass } key={i}>{ val } : { countyStats[val] }</li>
     )
   })
-
+  console.log(selectedCards);
   const cardClass = classNames({
                                 'selected' : selectedCards.includes(index),
                                 'each-card' : true
@@ -21,7 +21,7 @@ const SchoolCountyCard = ({ location, countyStats, handleClick, index, selectedC
   return(
     <article
       className={cardClass}
-      onClick={ () => handleClick(index) }>
+      onClick={ () => handleClick(index, location, countyStats) }>
       <h1 className='card-header'>{ location }</h1>
       <ul>
         { mappedStats }
