@@ -12,7 +12,8 @@ class App extends Component {
     this.state = {
       countyStats: {},
       searchText: '',
-      selectedCards: []
+      selectedCards: [],
+      toCompare : []
     }
 
     this.handleClick = this.handleClick.bind(this)
@@ -36,12 +37,17 @@ class App extends Component {
     })
   }
 
-  handleClick(index) {
+  handleClick(index, location, statistics) {
     if(this.state.selectedCards.length >= 2) {
       return
     }
+    const compareObj = {
+      location,
+      statistics,
+    }
     this.setState({
       selectedCards: this.state.selectedCards.concat(index),
+      toCompare: this.state.toCompare.concat(compareObj),
     })
   }
 
