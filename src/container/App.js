@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CardList from '../components/CardList/CardList'
+import CardsToCompare from '../components/CardsToCompare/CardsToCompare'
 import './App.css';
 import DistrictRepository from '../helper.js';
 import kinderData from '../../data/kindergartners_in_full_day_program.js';
@@ -47,6 +48,7 @@ class App extends Component {
       toCompare: this.state.toCompare.concat(compareObj),
     })
   }
+
   removeFromCompare(index) {
     this.setState({
       selectedCards: this.state.selectedCards.filter((val, i) => val !== index),
@@ -65,10 +67,14 @@ class App extends Component {
           placeholder='Search School Counties'
           onChange={ e => this.handleSearch(e) }
         />
+        <CardsToCompare
+          cardsToCompare={ this.state.toCompare }
+          selectedCards={ this.state.selectedCards }
+        />
         <CardList
           { ...this.state }
           handleClick={ this.handleClick }
-          />
+        />
       </section>
     );
   }
