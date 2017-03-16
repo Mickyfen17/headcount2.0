@@ -12,7 +12,7 @@ const CardList = ({ countyStats, handleClick, selectedCards }) => {
         location={ location  }
         countyStats={ data }
         handleClick={ handleClick }
-        index={ i }
+        index={ Date.now() }
         selectedCards={ selectedCards }
       />
     )
