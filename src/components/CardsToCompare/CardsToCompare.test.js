@@ -49,7 +49,7 @@ describe('testing the CardsToCompare component', () => {
         handleClick={ () => {} }
       />
     )
-    console.log(wrapper.debug());
+
     expect(wrapper.find(SchoolCountyCard)).toHaveLength(2)
   })
 
