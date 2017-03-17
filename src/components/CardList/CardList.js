@@ -24,4 +24,10 @@ const CardList = ({ countyStats, handleClick, selectedCards }) => {
   )
 }
 
+CardList.propTypes = {
+  countyStats: React.PropTypes.object,
+  handleClick: React.PropTypes.func.isRequired,
+  selectedCards: React.PropTypes.arrayOf(React.PropTypes.number)
+};
+
 export default CardList;

@@ -28,4 +28,10 @@ const CardsToCompare = ({ cardsToCompare, selectedCards, handleClick }) => {
   )
 }
 
+CardsToCompare.propTypes = {
+  cardsToCompare: React.PropTypes.arrayOf(React.PropTypes.object),
+  selectedCards: React.PropTypes.arrayOf(React.PropTypes.number),
+  handleClick: React.PropTypes.func.isRequired
+};
+
 export default CardsToCompare;

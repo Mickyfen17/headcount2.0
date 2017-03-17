@@ -29,4 +29,12 @@ const SchoolCountyCard = ({ location, countyStats, handleClick, index, selectedC
   )
 }
 
+SchoolCountyCard.propTypes = {
+  location: React.PropTypes.string,
+  countyStats: React.PropTypes.object,
+  handleClick: React.PropTypes.func.isRequired,
+  index: React.PropTypes.number,
+  selectedCards: React.PropTypes.arrayOf(React.PropTypes.number)
+};
+
 export default SchoolCountyCard

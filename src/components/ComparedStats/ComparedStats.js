@@ -35,4 +35,8 @@ const ComparedStats = ({ cardsToCompare }) => {
   )
 }
 
+ComparedStats.propTypes = {
+  cardsToCompare: React.PropTypes.arrayOf(React.PropTypes.object),
+};
+
 export default ComparedStats
