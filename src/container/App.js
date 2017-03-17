@@ -65,7 +65,7 @@ class App extends Component {
     const { searchText, toCompare, selectedCards } = this.state
     return (
       <section className='main-section'>
-        <h1>Welcome To Headcount 2.0</h1>
+        <h1 className='main-header'>Welcome To Headcount 2.0</h1>
         <input
           className='search-input'
           type='text'
