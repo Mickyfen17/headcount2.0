@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './ComparedStats.css';
 import DistrictRepository from '../../helper.js';
 import kinderData from '../../../data/kindergartners_in_full_day_program.js';

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import SchoolCountyCard from '../SchoolCountyCard/SchoolCountyCard'
 import ComparedStats from '../ComparedStats/ComparedStats'
 import './CardsToCompare.css';
