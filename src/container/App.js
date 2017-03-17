@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CardList from '../components/CardList/CardList'
 import CardsToCompare from '../components/CardsToCompare/CardsToCompare'
+import NoResultsFound from '../components/NoResultsFound/NoResultsFound'
 import './App.css';
 import DistrictRepository from '../helper.js';
 import kinderData from '../../data/kindergartners_in_full_day_program.js';
@@ -82,6 +83,7 @@ class App extends Component {
           { ...this.state }
           handleClick={ this.handleClick }
         />
+        { this.state.countyStats.length === 0 && <NoResultsFound /> }
       </section>
     );
   }
