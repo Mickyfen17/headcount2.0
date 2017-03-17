@@ -56,25 +56,26 @@ class App extends Component {
 
   removeFromCompare(index) {
     this.setState({
-      selectedCards: this.state.selectedCards.filter((val, i) => val !== index),
+      selectedCards: this.state.selectedCards.filter( val => val !== index),
       toCompare: this.state.toCompare.filter( county => county.index !== index)
     })
   }
 
   render() {
+    const { searchText, toCompare, selectedCards } = this.state
     return (
       <section className='main-section'>
         <h1>Welcome To Headcount 2.0</h1>
         <input
           className='search-input'
           type='text'
-          value={ this.state.searchText }
+          value={ searchText }
           placeholder='Search School Counties'
           onChange={ e => this.handleSearch(e) }
         />
         <CardsToCompare
-          cardsToCompare={ this.state.toCompare }
-          selectedCards={ this.state.selectedCards }
+          cardsToCompare={ toCompare }
+          selectedCards={ selectedCards }
           handleClick={ this.handleClick }
         />
         <CardList
