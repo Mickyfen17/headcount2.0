@@ -68,7 +68,6 @@ describe('testing the SchoolCountyCard component', () => {
                              .props()
                              .className)
                              .toEqual('negative stat-list')
-
   })
 
   it('should have a class of positive if data is greater than 0.5', () => {
@@ -88,7 +87,6 @@ describe('testing the SchoolCountyCard component', () => {
                              .props()
                              .className)
                              .toEqual('positive stat-list')
-
   })
 
   it('should have a class of selected if the card index is within the selected array', () => {
@@ -101,11 +99,10 @@ describe('testing the SchoolCountyCard component', () => {
         index={ 1234 }
       />
     )
+
     expect(wrapper.find('.each-card').props()
                                      .className)
                                      .toEqual('selected each-card')
-
-
   })
 
   it('should not have a class of selected if the card index does not exist in the selected array', () => {
@@ -118,11 +115,10 @@ describe('testing the SchoolCountyCard component', () => {
         index={ 890 }
       />
     )
+
     expect(wrapper.find('.each-card').props()
                                      .className)
                                      .toEqual('each-card')
-
-
   })
 
 })
