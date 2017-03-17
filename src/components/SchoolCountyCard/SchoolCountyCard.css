@@ -55,6 +55,10 @@ ul {
   text-align: center;
 }
 
+.compare-divs:nth-child(2) {
+  order: 3;
+}
+
 @media screen and (min-width: 600px) {
   .each-card {
     width: 45%;
