@@ -41,6 +41,20 @@ ul {
   border: 5px solid blue;
 }
 
+.selected:nth-child(1) {
+  justify-content: center;
+  order: 2;
+}
+.selected:nth-child(2) {
+  order: 1;
+}
+.selected:nth-child(3) {
+  order: 3;
+}
+.selected h3 {
+  text-align: center;
+}
+
 @media screen and (min-width: 600px) {
   .each-card {
     width: 45%;
