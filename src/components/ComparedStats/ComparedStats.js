@@ -1,0 +1,36 @@
+import React, { Component } from 'react';
+import './ComparedStats.css';
+import DistrictRepository from '../../helper.js';
+import kinderData from '../../../data/kindergartners_in_full_day_program.js';
+
+const district = new DistrictRepository(kinderData);
+
+const ComparedStats = ({ cardsToCompare }) => {
+  if(cardsToCompare.length !== 2) {
+    return null
+  }
+  const locations = cardsToCompare.map(card => card.location)
+  const [ firstCounty, secondCounty ] = locations
+
+  const comparedCard = () => {
+    if(locations.length !== 2) {
+      return
+    }
+    const compared = district.compareDistrictAverages(firstCounty, secondCounty)
+    return(
+      Object.keys(compared).map((key, i) => {
+        return(
+            <h3 key={i}>{ `${key} ${compared[key]}` }</h3>
+        )
+      })
+    )
+  }
+
+  return(
+    <article className='selected each-card'>
+      { comparedCard() }
+    </article>
+  )
+}
+
+export default ComparedStats
