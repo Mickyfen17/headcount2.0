@@ -51,4 +51,44 @@ describe('testing the SchoolCountyCard component', () => {
                              .toEqual('2004 : 0.24')
   })
 
+  it('should have a class of negative if data is less than 0.5', () => {
+    const wrapper = shallow(
+      <SchoolCountyCard
+        countyStats={ data }
+        location={'COLORADO'}
+        selectedCards={ [0, 1] }
+        handleClick={ () => {} }
+      />
+    )
+
+    expect(wrapper.find('li').first()
+                             .text())
+                             .toEqual('2004 : 0.24')
+    expect(wrapper.find('li').first()
+                             .props()
+                             .className)
+                             .toEqual('negative stat-list')
+
+  })
+
+  it('should have a class of positive if data is greater than 0.5', () => {
+    const wrapper = shallow(
+      <SchoolCountyCard
+        countyStats={ data }
+        location={'COLORADO'}
+        selectedCards={ [0, 1] }
+        handleClick={ () => {} }
+      />
+    )
+
+    expect(wrapper.find('li').last()
+                             .text())
+                             .toEqual('2014 : 0.741')
+    expect(wrapper.find('li').last()
+                             .props()
+                             .className)
+                             .toEqual('positive stat-list')
+
+  })
+
 })
