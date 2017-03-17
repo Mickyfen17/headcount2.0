@@ -2,8 +2,5 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-}
-
-.card-header {
-  padding: 0 0 15px 0;
+  max-width: 1300px;
 }
