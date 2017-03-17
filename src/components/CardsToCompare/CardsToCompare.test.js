@@ -44,6 +44,7 @@ describe('testing the CardsToCompare component', () => {
     const wrapper = shallow(
       <CardsToCompare
           cardsToCompare={ data }
+          handleClick={ () => {} }
       />
     )
 
@@ -54,6 +55,7 @@ describe('testing the CardsToCompare component', () => {
     const wrapper = shallow(
       <CardsToCompare
           cardsToCompare={ data }
+          handleClick={ () => {} }
       />
     )
 
@@ -64,19 +66,11 @@ describe('testing the CardsToCompare component', () => {
     const wrapper = shallow(
       <CardsToCompare
         cardsToCompare={ data }
+        handleClick={ () => {} }
       />
     )
 
     expect(wrapper.find(SchoolCountyCard)).toHaveLength(2)
-  })
-
-  it('', () => {
-    const wrapper = shallow(
-      <CardsToCompare
-        cardsToCompare={ data }
-      />
-    )
-    console.log(wrapper.debug());
   })
 
 })

@@ -28,7 +28,7 @@ describe('testing the SchoolCountyCard component', () => {
       <SchoolCountyCard
         countyStats={ {} }
         selectedCards={ [0, 1] }
-        handleClick={''}
+        handleClick={ () => {} }
       />
     )
 
@@ -40,7 +40,7 @@ describe('testing the SchoolCountyCard component', () => {
       <SchoolCountyCard
         countyStats={ {} }
         selectedCards={ [0, 1] }
-        handleClick={''}
+        handleClick={ () => {} }
       />
     )
     //

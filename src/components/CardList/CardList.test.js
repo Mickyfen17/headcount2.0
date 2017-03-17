@@ -28,7 +28,7 @@ describe('testing the CardList component', () => {
       <CardList
         countyStats={ district }
         selectedCards={ [0, 1] }
-        handleClick={''}
+        handleClick={ () => {} }
       />
     )
 
@@ -40,7 +40,7 @@ describe('testing the CardList component', () => {
       <CardList
         countyStats={ district }
         selectedCards={ [0, 1] }
-        handleClick={''}
+        handleClick={ () => {} }
       />
     )
     console.log(wrapper.debug());
