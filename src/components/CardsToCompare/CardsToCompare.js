@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SchoolCountyCard from '../SchoolCountyCard/SchoolCountyCard'
+import ComparedStats from '../ComparedStats/ComparedStats'
 import './CardsToCompare.css';
 
 const CardsToCompare = ({ cardsToCompare, selectedCards, handleClick }) => {
@@ -21,6 +22,7 @@ const CardsToCompare = ({ cardsToCompare, selectedCards, handleClick }) => {
   })
   return (
     <section className='compare-section'>
+      <ComparedStats cardsToCompare={ cardsToCompare } />
       { mappedToCompare }
     </section>
   )
