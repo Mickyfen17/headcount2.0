@@ -7,6 +7,7 @@ import DistrictRepository from '../../src/helper.js';
 import kinderData from '../../data/kindergartners_in_full_day_program.js';
 
 describe('testing the App component', () => {
+  const district = new DistrictRepository(kinderData);
 
   it('should have props for four types of state', () => {
     const wrapper = shallow( <App /> )
@@ -39,6 +40,32 @@ describe('testing the App component', () => {
     expect(state.searchText).toEqual('Colorado');
   });
 
-  
+  it('should be able to accept an array of objects', () => {
+    const wrapper = shallow( <App /> )
+    let state = wrapper.state();
+
+    expect(state.countyStats).toEqual({});
+
+    wrapper.setState({ countyStats: district})
+    state = wrapper.state();
+
+    expect(state.countyStats).toMatchObject(district);
+  });
+
+  it('should be able to add text to input and reduce the data in countyStats state', () => {
+    const wrapper = shallow( <App /> )
+    let state = wrapper.state();
+    const inputField = wrapper.find('.search-input');
+
+    expect(state.countyStats).toEqual({});
+
+    wrapper.setState({ countyStats: district})
+    state = wrapper.state();
+
+    inputField.simulate('change', { target: { value: 'Colo' } });
+    state = wrapper.state();
+
+    expect(state.countyStats).toHaveLength(2);
+  });
 
 })
