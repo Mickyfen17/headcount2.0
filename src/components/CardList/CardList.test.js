@@ -1,32 +1,17 @@
 import React from 'react';
 import CardList from './CardList';
+import SchoolCountyCard from '../SchoolCountyCard/SchoolCountyCard';
 import { shallow } from 'enzyme';
 import DistrictRepository from '../../helper.js';
 import kinderData from '../../../data/kindergartners_in_full_day_program.js';
 
 describe('testing the CardList component', () => {
   const district = new DistrictRepository(kinderData);
-  const data = {
-    data: {
-      2004: 0.24,
-      2005: 0.278,
-      2006: 0.337,
-      2007: 0.395,
-      2008: 0.536,
-      2009: 0.598,
-      2010: 0.64,
-      2011: 0.672,
-      2012: 0.695,
-      2013: 0.703,
-      2014: 0.741
-    },
-    location: "COLORADO"
-  }
 
   it('should have a cards wrapper to hold all card rendered to the DOM', () => {
     const wrapper = shallow(
       <CardList
-        countyStats={ district }
+        countyStats={ {} }
         selectedCards={ [0, 1] }
         handleClick={ () => {} }
       />
@@ -35,15 +20,16 @@ describe('testing the CardList component', () => {
     expect(wrapper.find('.cards-wrapper')).toHaveLength(1)
   })
 
-  it.skip('should have props for four types of state', () => {
+  it('should render all 181 cards when original data is passed into CardList', () => {
     const wrapper = shallow(
       <CardList
-        countyStats={ district }
+        countyStats={ district.data }
         selectedCards={ [0, 1] }
         handleClick={ () => {} }
       />
     )
-    console.log(wrapper.debug());
+
+    expect(wrapper.find(SchoolCountyCard)).toHaveLength(181)
   })
 
 })
