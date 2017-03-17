@@ -2,6 +2,7 @@ import React from 'react';
 import App from './App';
 import CardsToCompare from '../components/CardsToCompare/CardsToCompare';
 import CardList from '../components/CardList/CardList';
+import NoResultsFound from '../components/NoResultsFound/NoResultsFound';
 import { shallow } from 'enzyme';
 import DistrictRepository from '../../src/helper.js';
 import kinderData from '../../data/kindergartners_in_full_day_program.js';
@@ -66,6 +67,18 @@ describe('testing the App component', () => {
     state = wrapper.state();
 
     expect(state.countyStats).toHaveLength(2);
+  });
+
+  it('should display NoReusltFound component if countyStats state is empty', () => {
+    const wrapper = shallow( <App /> )
+
+    wrapper.setState({ countyStats: []})
+
+    expect(wrapper.find(NoResultsFound)).toHaveLength(1)
+    expect(wrapper.find(NoResultsFound).dive()
+                                       .find('.no-results-section')
+                                       .text())
+                                       .toEqual('No Results FoundPlease Search Again')
   });
 
 })
