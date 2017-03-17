@@ -11,7 +11,6 @@ const ComparedStats = ({ cardsToCompare }) => {
   }
   const locations = cardsToCompare.map(card => card.location)
   const [ firstCounty, secondCounty ] = locations
-
   const comparedCard = () => {
     if(locations.length !== 2) {
       return
@@ -20,7 +19,10 @@ const ComparedStats = ({ cardsToCompare }) => {
     return(
       Object.keys(compared).map((key, i) => {
         return(
-            <h3 key={i}>{ `${key} ${compared[key]}` }</h3>
+          <div className='compare-divs' key={i}>
+            <h3>{key}</h3>
+            <h3>{compared[key]}</h3>
+          </div>
         )
       })
     )
