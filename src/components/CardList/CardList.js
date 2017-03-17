@@ -25,7 +25,10 @@ const CardList = ({ countyStats, handleClick, selectedCards }) => {
 }
 
 CardList.propTypes = {
-  countyStats: React.PropTypes.object,
+  countyStats: React.PropTypes.oneOfType([
+    React.PropTypes.array,
+    React.PropTypes.object,
+  ]),
   handleClick: React.PropTypes.func.isRequired,
   selectedCards: React.PropTypes.arrayOf(React.PropTypes.number)
 };
