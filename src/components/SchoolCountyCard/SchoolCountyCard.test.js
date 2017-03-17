@@ -91,4 +91,38 @@ describe('testing the SchoolCountyCard component', () => {
 
   })
 
+  it('should have a class of selected if the card index is within the selected array', () => {
+    const wrapper = shallow(
+      <SchoolCountyCard
+        countyStats={ data }
+        location={'COLORADO'}
+        selectedCards={ [1234, 4567] }
+        handleClick={ () => {} }
+        index={ 1234 }
+      />
+    )
+    expect(wrapper.find('.each-card').props()
+                                     .className)
+                                     .toEqual('selected each-card')
+
+
+  })
+
+  it('should not have a class of selected if the card index does not exist in the selected array', () => {
+    const wrapper = shallow(
+      <SchoolCountyCard
+        countyStats={ data }
+        location={'COLORADO'}
+        selectedCards={ [1234, 4567] }
+        handleClick={ () => {} }
+        index={ 890 }
+      />
+    )
+    expect(wrapper.find('.each-card').props()
+                                     .className)
+                                     .toEqual('each-card')
+
+
+  })
+
 })
