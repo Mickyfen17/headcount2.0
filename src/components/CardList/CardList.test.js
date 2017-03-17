@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import DistrictRepository from '../../helper.js';
 import kinderData from '../../../data/kindergartners_in_full_day_program.js';
 
-describe('testing the App component', () => {
+describe('testing the CardList component', () => {
   const district = new DistrictRepository(kinderData);
   const data = {
     data: {
