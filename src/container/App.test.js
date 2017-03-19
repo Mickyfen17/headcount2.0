@@ -2,8 +2,9 @@ import React from 'react';
 import App from './App';
 import CardsToCompare from '../components/CardsToCompare/CardsToCompare';
 import CardList from '../components/CardList/CardList';
+import SchoolCountyCard from '../components/SchoolCountyCard/SchoolCountyCard';
 import NoResultsFound from '../components/NoResultsFound/NoResultsFound';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import DistrictRepository from '../../src/helper.js';
 import kinderData from '../../data/kindergartners_in_full_day_program.js';
 
@@ -80,5 +81,18 @@ describe('testing the App component', () => {
                                        .text())
                                        .toEqual('No Results FoundPlease Search Again')
   });
+
+  it('should be able to click on a card on the page and store the cards id in selectedCards state', () => {
+    const wrapper = mount( <App /> )
+    const firstCard = wrapper.find(SchoolCountyCard).first().find('article')
+    let state = wrapper.state()
+
+    expect(state.selectedCards).toHaveLength(0)
+
+    firstCard.simulate('click')
+    state = wrapper.state()
+
+    expect(state.selectedCards).toHaveLength(1)
+  })
 
 })
