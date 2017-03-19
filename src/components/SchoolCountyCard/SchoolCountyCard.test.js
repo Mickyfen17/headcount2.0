@@ -1,6 +1,8 @@
 import React from 'react';
 import SchoolCountyCard from './SchoolCountyCard';
-import { shallow } from 'enzyme';
+import App from '../../container/App';
+import { shallow, mount } from 'enzyme';
+import sinon from 'sinon';
 import DistrictRepository from '../../helper.js';
 import kinderData from '../../../data/kindergartners_in_full_day_program.js';
 
@@ -119,6 +121,23 @@ describe('testing the SchoolCountyCard component', () => {
     expect(wrapper.find('.each-card').props()
                                      .className)
                                      .toEqual('each-card')
+  })
+
+  it('should simulate a click a recongnise that the click occured', () => {
+    const handleClick = sinon.spy()
+    const wrapper = mount(
+      <SchoolCountyCard
+        countyStats={ data }
+        location={'COLORADO'}
+        selectedCards={ [] }
+        handleClick={ handleClick }
+        index={ 12345 }
+      />
+    )
+    wrapper.simulate('click')
+
+    expect(handleClick).toHaveProperty('callCount', 1);
+    expect(handleClick.calledOnce).toEqual(true);
   })
 
 })
